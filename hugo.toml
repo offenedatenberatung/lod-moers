@@ -1,0 +1,3 @@
+baseURL = 'https://data-moers.onrender.com/'
+languageCode = 'de-DE'
+title = 'Linked Open Data Moers'

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}
+      {{ .Site.Title }}
+    {{ end }}</title>
+{{- $styles := resources.Get "css/main.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
+{{- if hugo.IsServer }}
+{{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/styles.dev.%v.css" now.UnixMilli) .}}
+{{ else }}
+{{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+{{ end -}}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  </head>
+  <body>
+		<div class="mx-auto max-w-4xl">
+    {{ block "main" . }}
+    {{ end }}
+		</div>
+    {{ block "footer" . }}
+    {{ end }}
+  </body>
+</html>
