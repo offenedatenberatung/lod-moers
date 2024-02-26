@@ -5,7 +5,9 @@
       </header>
       {{ .Content }}
 			<div class="mt-8">
-				<h2 class="text-xl font-bold">Sozialatlasbezirke:</h2>
+				<h2 class="text-xl font-bold">
+					{{ with or (.Param "subtitle") "Sozialatlasbezirke" }}{{ . }}{{ end }}:
+				</h2>
 			<ul class="mt-4">
       {{ range .Pages }}
         <li class="disc">
