@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <div class="mt-16">
+			<header resource="{{.RelPermalink}}">
+				<h1 class="text-4xl font-bold" property="dc:title">{{.Title}}</h1>
+      </header>
+      {{ .Content }}
+			<div class="mt-8">
+				<h2 class="text-xl font-bold">Sozialatlasbezirke:</h2>
+			<ul class="mt-4">
+      {{ range .Pages }}
+        <li class="disc">
+					<a resource="{{.RelPermalink}}" href="{{ .RelPermalink }}" class="underline">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+			</ul>
+	</div>
+</div>
+{{ end }}

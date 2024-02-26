@@ -2,7 +2,7 @@
 Sozialatlasbezirk {{.Title}}
 {{end}}
 {{ define "main" }}
-<div prefix="dc: http://purl.org/dc/terms/ schema: http://schema.org/ " class="mt-16">
+<div resource="{{.RelPermalink}}" prefix="dc: http://purl.org/dc/terms/ schema: http://schema.org/ " class="mt-16">
 <h1 class="text-4xl font-bold" property="dc:title">{{.Title}}</h1>
 {{ $data := (index .Site.Data.sozialraum .Slug) }}
 <p>Sozialraum: {{ index $data "sozialraum" }}</p>
