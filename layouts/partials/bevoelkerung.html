@@ -1,9 +1,11 @@
-<div prefix="dc: http://purl.org/dc/terms/ schema: http://schema.org/ ">
+{{$context := .context }}
+{{$mainURI := .context.Page.RelPermalink }}
+<div property="qb:DataSet" resource="/statistiken/datasets/bevoelkerung" prefix="dc: http://purl.org/dc/terms/ schema: http://schema.org/ ">
 	{{$pageTitle := .context.Page.Title}}
-	<h3 property="qb:DimensionProperty" class="mt-6 text-xl font-bold">Bevölkerung</h3>
-	<ul property="qb:DataSet">
+	<h3 property="dct:title" class="mt-6 text-xl font-bold">Bevölkerung</h3>
+	<ul >
 		{{ range .bevoelkerung }}
-		<li property="qb:Observation"><span property="qb:dimension" content="{{$pageTitle}}"></span><span property="qb:dimension" datatype="xsd:gYear">{{index . "jahr"}}</span>:<span datatype="xsd:integer" property="qb:measure">{{index . "value"}}</span></li>
+		<li property="qb:Observation" resource="/statistiken/datasets/bevoelkerung/sozialraum#{{index  . "id" }}"><span property="qb:dimension" content="{{$pageTitle}}"></span><span property="qb:dimension" datatype="xsd:gYear">{{index . "jahr"}}</span>:<span datatype="xsd:integer" property="qb:measure">{{index . "value"}}</span></li>
 		{{ end }}
 	</ul>
 </div>
