@@ -3,7 +3,7 @@
 			<header resource="{{.RelPermalink}}">
 				<h1 class="text-4xl font-bold" property="dc:title">{{.Title}}</h1>
       </header>
-      {{ .Content }}
+			<p class="mt-6">{{.Params.description}}</p>
 			<div class="mt-8">
 				<h2 class="text-xl font-bold">
 					{{ with or (.Param "subtitle") "Sozialatlasbezirke" }}{{ . }}{{ end }}:
@@ -16,5 +16,6 @@
       {{ end }}
 			</ul>
 	</div>
+	{{ .Content }}
 </div>
 {{ end }}

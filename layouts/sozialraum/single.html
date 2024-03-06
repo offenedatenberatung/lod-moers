@@ -10,7 +10,6 @@ Sozialatlasbezirk {{.Title}}
   <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
 {{ end }}
 </p>
-	{{ partial "bevoelkerung.html" (dict "context" . "bevoelkerung" $data) }}
 </div>
 {{.Content}}
 {{end}}
